@@ -1,23 +1,26 @@
-from core.browser import BrowserEngine
+from core.cli import CLI
+from tasks.open_site import open_site
+
 
 def main():
-    engine = BrowserEngine(headless=False)
-
-    print("Launching Brower.........")
+    cli = CLI()
     
-    page = engine.start()
+    command = cli.get_command()
 
-    page.goto("https://the-internet.herokuapp.com")
+    if command is None:
 
-    print("Page title")
+        print("No command provided.\n")
 
-    print(page.title())
+        print("Availabe commands: ")
+        print("  open")
 
-    page.wait_for_timeout(3000)
+        return
+    if command == "open":
 
-    engine.stop()
+        open_site()
+    else:
+        print(f"Unknown command: {command}")
 
-    print("Browser closed")
 
 
 
