@@ -1,6 +1,6 @@
 from tasks.open_site import open_site
 from tasks.login import login
-from tasks.screnshot import screenshot
+from tasks.screenshot import screenshot
 from tasks.download import download
 from tasks.scrape import scrape
 

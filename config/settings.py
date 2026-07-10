@@ -12,3 +12,7 @@ PASSWORD = "SuperSecretPassword!"
 
 OUTPUT_DIR = Path("outputs")
 SCREENSHOT_DIR = OUTPUT_DIR / "screenshots"
+
+
+EXPORTS_DIR = OUTPUT_DIR / "exports"
+TABLE_URL = f"{BASE_URL}/tables"
