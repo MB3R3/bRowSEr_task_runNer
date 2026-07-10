@@ -14,7 +14,9 @@ class BrowserEngine:
         self.playwright = sync_playwright().start()
 
         self.browser = self.playwright.chromium.launch(headless=self.headless)
-        self.context = self.browser.new_context()
+        self.context = self.browser.new_context(
+            accept_downloads=True
+        )
         self.page = self.context.new_page()
 
         return self.page

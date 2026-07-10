@@ -38,8 +38,8 @@ def scrape():
         filename = f"user_{timestamp()}.csv"
         filepath = EXPORTS_DIR / filename
 
-        for record in data:
-            print(record)
+        # for record in data:
+        #     print(record)
 
         export_csv(data, filepath)
 
@@ -49,7 +49,4 @@ def scrape():
 
     finally:
         engine.stop()
-
-
-
 

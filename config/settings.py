@@ -16,3 +16,7 @@ SCREENSHOT_DIR = OUTPUT_DIR / "screenshots"
 
 EXPORTS_DIR = OUTPUT_DIR / "exports"
 TABLE_URL = f"{BASE_URL}/tables"
+
+
+DOWNLOAD_URL = f"{BASE_URL}/download"
+DOWNLOAD_DIR = OUTPUT_DIR / "downloads"
