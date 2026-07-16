@@ -20,3 +20,9 @@ TABLE_URL = f"{BASE_URL}/tables"
 
 DOWNLOAD_URL = f"{BASE_URL}/download"
 DOWNLOAD_DIR = OUTPUT_DIR / "downloads"
+
+
+LOG_DIR = Path("logs")
+REPORT_DIR = Path("reports")
+
+LOG_FILE = LOG_DIR / "automation.log"

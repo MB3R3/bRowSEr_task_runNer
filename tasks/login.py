@@ -1,5 +1,9 @@
+from time import perf_counter
+
 from core.browser import BrowserEngine
 from config.settings import BASE_URL, LOGIN_URL, USERNAME, PASSWORD
+from core.logger import logger
+from core.reports import create_report
 
 
 
@@ -9,9 +13,14 @@ def login():
 
     page = engine.start()
 
-    try:
+    start = perf_counter()
 
-        print("Opening Login Page........ ")
+    output_file = None
+
+    try:
+        logger.info("Login action initiated ")
+
+        print("Opening Login Page... ")
 
         page.goto(LOGIN_URL)
 
@@ -31,11 +40,36 @@ def login():
 
         flash = page.locator("#flash").inner_text()
 
-        if "You logged into a secure area!" in flash:
-            print("\nLogin successful")
+        duration = perf_counter() - start
 
-        else:
-            print("\nLogin Failed")
+        if "You logged into a secure area!" in flash:
+            # print("\nLogin successful")
+            logger.info("Login successful")
+            report = create_report(
+                task="Login",
+                status="Success",
+                duration=duration,
+                output_file=output_file
+            )
+
+            logger.info(f"Report created {report}")
+
+        
+        # else:
+    except Exception as e:
+        duration = perf_counter() - start
+
+        logger.error(e)
+
+        report = create_report(
+            task="Login",
+            status="Failed",
+            duration=duration,
+            error=str(e)
+        )
+        
+        print(f"Error: {e}")
+        print(f"Report created: {report}")
 
         page.wait_for_timeout(3000)
 
