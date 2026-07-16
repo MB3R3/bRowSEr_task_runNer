@@ -1,3 +1,4 @@
+from core.batch import BatchRunner
 from core.cli import CLI
 from core.dispatcher import TaskDispatcher
 
@@ -26,6 +27,11 @@ def main():
 
         return
 
+    if command == "batch":
+        BatchRunner().run()
+        return
+    
+    
     dispatcher = TaskDispatcher()
 
     dispatcher.execute(command)

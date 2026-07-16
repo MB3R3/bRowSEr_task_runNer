@@ -12,7 +12,7 @@ class TaskDispatcher:
             "login": login,
             "screenshot": screenshot,
             "download": download,
-            "scrape": scrape
+            "scrape": scrape,
         }
 
     
